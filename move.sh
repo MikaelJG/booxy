@@ -8,7 +8,6 @@ CHAP_ONE_PATH="${script_dir}/chap_1"
 CHAP_TWO_PATH="${script_dir}/chap_2"
 CHAP_THREE_PATH="${script_dir}/chap_3"
 CHAP_FOUR_PATH="${script_dir}/chap_4"
-CHAP_FIVE_PATH="${script_dir}/chap_5"
 
 # document paths
 PDF_PATH="${script_dir}/pdf"
@@ -29,8 +28,6 @@ case $1 in
         if_path_exists_move $CHAP_THREE_PATH;;
     four|fourth_chap_title)
         if_path_exists_move $CHAP_FOUR_PATH;;
-    five|fifth_chap_title)
-        if_path_exists_move $CHAP_FIVE_PATH;;
     pdf)
         if_path_exists_move $PDF_PATH;;
     latex)
