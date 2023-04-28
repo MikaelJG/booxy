@@ -33,6 +33,17 @@ Install Booxy.
 ```bash
 $ git clone git@github.com:MikaelJG/booxy.git
 ```
-## Demo
+## Move 
+
+Use keywords to move between chapters.
+
+
+## Moving demo
+
+
+## Compile 
+
+
+## Compile demo
 
 
