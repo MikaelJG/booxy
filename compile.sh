@@ -7,27 +7,16 @@ date=$(date +"%m-%d-%H:%M")
 script_dir="$(dirname ${BASH_SOURCE[0]})"
 
 # chapters
-path_1=${script_dir}/1_bash
-path_2=${script_dir}/2_programming_concepts
-path_3=${script_dir}/3_languages
-path_4=${script_dir}/4_game_industry
-path_5=${script_dir}/5_game_engines
-path_6=${script_dir}/6_linux
-path_7=${script_dir}/7_vim
-path_8=${script_dir}/8_web_development
-path_9=${script_dir}/9_computing
-path_10=${script_dir}/10_personal_configs
-path_11=${script_dir}/11_devops
-path_12=${script_dir}/12_Unreal_UdeMy
-path_13=${script_dir}/13_kali
+path_1=${script_dir}/chap_1
+path_2=${script_dir}/chap_2
+path_3=${script_dir}/chap_3
+path_4=${script_dir}/chap_4
+path_5=${script_dir}/chap_5
 
 # documents
 pdf_path=${script_dir}/pdf
 latex_path=${script_dir}/latex
-intermediate_path=${script_dir}/latex/intermediate
-
 complete_path=${script_dir}/complete
-answer_path=${script_dir}/answer
 
 compile_latex() {
     for filename in ${latex_path}/*; do 

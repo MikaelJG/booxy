@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # script directory
-script_dir=$(dirname ${SOURCE_BASH[0]})
+script_dir=$(dirname ${BASH_SOURCE[0]})
 echo $script_dir
 
 # book path 
