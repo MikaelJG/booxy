@@ -3,7 +3,7 @@
 
 Booxy is a cli tool for latex books. It compiles, cleans and move through .tex chapters and books.
 
-Latex documentation [Latex](https://).
+Learn [Latex](https://www.latex-project.org/)
 
 ## Installation
 
