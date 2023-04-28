@@ -17,6 +17,7 @@ path_5=${script_dir}/chap_5
 pdf_path=${script_dir}/pdf
 latex_path=${script_dir}/latex
 complete_path=${script_dir}/complete
+log_path=${script_dir}/log
 
 compile_latex() {
     for filename in ${latex_path}/*; do 
@@ -26,21 +27,27 @@ compile_latex() {
         fi
     done
 
-    rm *.aux && rm *.log
-    mv *.pdf pdf
+    # .log in log ; .pdf in pdf
+    mv *.aux log ; mv *.log log ; mv *.pdf pdf
 
     pdf_files=$(ls ${pdf_path}) 
+
+    # todo , if not installed, 
+    # install pdfunite
 
     cd $pdf_path && pdfunite ${pdf_files} workbook_$date.pdf
 
     mv workbook* ../$complete_path
 }
 
-for i in {1..13}; do
+# loop over number of chapters
+for i in {1..5}; do
   path="path_$i"
   files=$(ls ${!path})
 
     for filename in ${files}; do
+
+    # looking for .tex extension
         ext="${filename##*.}"
         case $ext in
         tex) 
