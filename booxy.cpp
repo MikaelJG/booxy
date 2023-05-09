@@ -19,12 +19,13 @@ int main() {
 
     // Set the object's properties
     // john.num = "John";
-    john.num = 22;
+    shell.num = 22;
     // john.isMale = true;
 
-    // Print the object's properties
-    cout << "Name: " << john.name << endl;
-    cout << "Age: " << john.age << endl;
-    cout << "Is Male: " << (john.isMale ? "Yes" : "No") << endl;
+    // don't use endl [Turner]
+    // cout << "Name: " << john.name << endl;
+    std::cout << "Chapter number: " << shell.num << std::endl;
+    // cout << "Is Male: " << (john.isMale ? "Yes" : "No") << endl;
 
     return 0;
+}
