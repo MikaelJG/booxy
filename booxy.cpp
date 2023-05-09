@@ -9,12 +9,25 @@ struct Chapter {
     // bool isPrintable;
 };
 
+std::vector GetDocs(string directory) {
+    // initialize a vector
+    std::vector TexDocs;
+
+    // look in the dir
+    // for found .tex, append it in the vector
+    return (num1 + num2) / 2;
+}
+
+// function,
+// find .tex docs.
+
+// sort chapters.num 
+// to print in the right order
+
 int main() {
 
-    // for all in this dir
+    // for all .tex in directory latex
     // create a chapter object 
-
-    // Create a chapter object
     Chapter shell;
 
     // Set the object's properties
@@ -23,9 +36,7 @@ int main() {
     // john.isMale = true;
 
     // don't use endl [Turner]
-    // cout << "Name: " << john.name << endl;
-    std::cout << "Chapter number: " << shell.num << std::endl;
-    // cout << "Is Male: " << (john.isMale ? "Yes" : "No") << endl;
+    std::cout << "Chapter number: " << shell.num << '\n';
 
     return 0;
 }
