@@ -1,7 +1,7 @@
 
 ![Logo](https://github.com/MikaelJG/noti/blob/master/assets/.png)
 
-Booxy is a cli tool for latex books. It compiles, cleans and move through .tex chapters and books.
+Booxy is a cli tool for latex books. It compiles, cleans and move through .tex chapters.
 
 Learn [Latex](https://www.latex-project.org/)
 
