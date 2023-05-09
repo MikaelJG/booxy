@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#######
+####### Logic is there, code it in c++ and golang
+#######
+#######
+
 # pretty date
 date=$(date +"%m-%d-%H:%M")
 
