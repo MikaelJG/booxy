@@ -9,21 +9,18 @@ struct Chapter {
 };
 
 // give it std::string directory as well.
-std::vector<std::string> GetDocs(std::vector<std::string> docs, bool print) {
+std::vector<std::string> GetDocs(Chapter ch) {
     // look in the dir
     // for found .tex, 
     // append in the chapter's vector
 
-    for (int integer = 0; integer < docs.size(); integer++) {
-        std::cout << docs[integer] << " ";
+    for (int integer = 0; integer < ch.TexDocs.size(); integer++) {
+        std::cout << ch.TexDocs[integer] << " ";
     }
     std::cout << std::endl;
-    std::cout << (print ? "true" : "false") << '\n'; 
-    return docs;
+    std::cout << (ch.isToPrint ? "true" : "false") << '\n'; 
+    return ch.TexDocs;
 }
-
-// function,
-// find .tex docs.
 
 // sort chapters.num 
 // to print in the right order
@@ -35,7 +32,7 @@ int main() {
     Chapter shell;
     shell.TexDocs = {"I'm", "in", "GetDocs", "Function"};
 
-    GetDocs(shell.TexDocs, shell.isToPrint);
+    GetDocs(shell);
 
     shell.num = 22;
     std::cout << "Chapter number: " << shell.num << '\n';
