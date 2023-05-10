@@ -5,17 +5,23 @@
 struct Chapter {
     // std::string e;
     int num;
-    // print is true by default
-    // bool isPrintable;
+    // possibly many .tex for one chapter 
+    std::vector<std::string> TexDocs;
+
+    bool isPrintable; // true by default
 };
 
-std::vector GetDocs(string directory) {
-    // initialize a vector
-    std::vector TexDocs;
-
+// give it std::string directory as well.
+std::vector<std::string> GetDocs(std::vector<std::string> docs) {
     // look in the dir
-    // for found .tex, append it in the vector
-    return (num1 + num2) / 2;
+    // for found .tex, 
+    // append in the chapter's vector
+
+    for (int integer = 0; integer < docs.size(); integer++) {
+        std::cout << docs[integer] << " ";
+    }
+    std::cout << std::endl;
+    return docs;
 }
 
 // function,
@@ -29,13 +35,11 @@ int main() {
     // for all .tex in directory latex
     // create a chapter object 
     Chapter shell;
+    shell.TexDocs = {"I'm", "in", "GetDocs", "Function"};
 
-    // Set the object's properties
-    // john.num = "John";
+    GetDocs(shell.TexDocs);
+
     shell.num = 22;
-    // john.isMale = true;
-
-    // don't use endl [Turner]
     std::cout << "Chapter number: " << shell.num << '\n';
 
     return 0;
