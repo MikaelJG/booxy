@@ -1,6 +1,8 @@
 #include<iostream>
 #include<vector>
 #include<string>
+#include<cstring>
+#include<dirent.h>
 
 struct Chapter {
     int num;
@@ -45,10 +47,20 @@ int main(int argc, char* argv[]) {
     std::string pdfPath = parentDirectory + "/pdf";
     std::string completePath = parentDirectory + "/complete";
     
-    std::cout << completePath << '\n';
-    std::cout << pdfPath << '\n';
-    std::cout << latexPath << '\n';
+    DIR *dir;
+    struct dirent *entry;
 
+        if ((dir = opendir(".")) != NULL) {
+            while ((entry = readdir(dir)) != NULL) {
+                if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
+                    continue;
+                }
+            std::cout << entry->d_name << std::endl;
+            }
+            closedir(dir);
+        } else {
+            perror("opendir() error");
+        }
     // for all .tex in directory latex
     // create a chapter object 
     // look at directory
