@@ -4,6 +4,7 @@
 
 struct Chapter {
     int num;
+    std::string directory;
     std::vector<std::string> TexDocs;
     bool isToPrint = true;
 };
@@ -17,7 +18,7 @@ std::vector<std::string> GetDocs(Chapter ch) {
     for (int integer = 0; integer < ch.TexDocs.size(); integer++) {
         std::cout << ch.TexDocs[integer] << " ";
     }
-    std::cout << std::endl;
+    std::cout << '\n';
     std::cout << (ch.isToPrint ? "true" : "false") << '\n'; 
     return ch.TexDocs;
 }
@@ -29,6 +30,9 @@ int main() {
 
     // for all .tex in directory latex
     // create a chapter object 
+    // look at directory
+    // get all .tex docs
+
     Chapter shell;
     shell.TexDocs = {"I'm", "in", "GetDocs", "Function"};
 
