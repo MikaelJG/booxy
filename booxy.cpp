@@ -9,7 +9,6 @@ struct Chapter {
     bool isToPrint = true;
 };
 
-// give it std::string directory as well.
 std::vector<std::string> GetDocs(Chapter ch) {
     // look in the dir
     // for found .tex, 
@@ -26,7 +25,16 @@ std::vector<std::string> GetDocs(Chapter ch) {
 // sort chapters.num 
 // to print in the right order
 
-int main() {
+int main(int argc, char* argv[]) {
+    std::cout << "Number of arguments: " << argc << '\n';
+    std::cout << "Arguments:" << std::endl;
+    for (int i = 0; i < argc; i++) {
+        std::cout << " " << argv[i] << '\n';
+    }
+    // get relative path
+    // where this program is.
+
+
 
     // for all .tex in directory latex
     // create a chapter object 
