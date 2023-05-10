@@ -3,12 +3,10 @@
 #include<string>
 
 struct Chapter {
-    // std::string e;
     int num;
-    // possibly many .tex for one chapter 
     std::vector<std::string> TexDocs;
 
-    bool isPrintable; // true by default
+    bool isToPrint; // true by default
 };
 
 // give it std::string directory as well.
