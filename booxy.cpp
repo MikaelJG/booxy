@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<string>
+#include<typeinfo>
 #include<cstring>
 #include<dirent.h>
 
@@ -24,7 +25,7 @@ std::vector<std::string> GetDocs(Chapter ch) {
     return ch.TexDocs;
 }
 
-std::string getParentDirectory(const std::string& path) {
+std::string getParentDirectory(std::string path) {
     size_t found = path.find_last_of("/\\");
     if (found != std::string::npos) {
         return path.substr(0, found);
@@ -46,21 +47,27 @@ int main(int argc, char* argv[]) {
     std::string latexPath = parentDirectory + "/latex";
     std::string pdfPath = parentDirectory + "/pdf";
     std::string completePath = parentDirectory + "/complete";
-    
-    DIR *dir;
-    struct dirent *entry;
 
-        if ((dir = opendir(".")) != NULL) {
-            while ((entry = readdir(dir)) != NULL) {
-                if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
-                    continue;
-                }
-            std::cout << entry->d_name << std::endl;
-            }
-            closedir(dir);
-        } else {
-            perror("opendir() error");
-        }
+    auto directory = opendir(chapOnePath);
+    const std::type_info& type = typeid(dir);
+
+    std::cout << "Type: " << type.name() << std::endl;
+
+    
+    // std::string dir;
+    // struct dirent *entry;
+
+    //     if ((dir = opendir(chapOnePath)) != NULL) {
+    //         while ((entry = readdir(dir)) != NULL) {
+    //             if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
+    //                 continue;
+    //             }
+    //         std::cout << entry->d_name << '\n';
+    //         }
+    //         closedir(dir);
+    //     } else {
+    //         perror("opendir() error");
+    //     }
     // for all .tex in directory latex
     // create a chapter object 
     // look at directory
