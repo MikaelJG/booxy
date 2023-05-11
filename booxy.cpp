@@ -52,11 +52,6 @@ int main(int argc, char* argv[]) {
     std::string pdfPath = parentDirectory + "/pdf";
     std::string completePath = parentDirectory + "/complete";
 
-    auto directory = opendir(chapOnePath);
-    const std::type_info& type = typeid(dir);
-
-    std::cout << "Type: " << type.name() << std::endl;
-
     std::string path = "./pdf";
     for (const auto & entry : fs::directory_iterator(path))
         std::cout << entry.path() << std::endl;
