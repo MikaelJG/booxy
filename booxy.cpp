@@ -1,9 +1,13 @@
-#include<iostream>
-#include<vector>
-#include<string>
-#include<typeinfo>
-#include<cstring>
-#include<dirent.h>
+// You need the 17 standard.
+//  g++ -std=c++17 myfile.cpp -o output-name
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <typeinfo>
+#include <cstring>
+#include <filesystem>
+namespace fs = std::filesystem;
 
 struct Chapter {
     int num;
@@ -53,21 +57,10 @@ int main(int argc, char* argv[]) {
 
     std::cout << "Type: " << type.name() << std::endl;
 
+    std::string path = "./pdf";
+    for (const auto & entry : fs::directory_iterator(path))
+        std::cout << entry.path() << std::endl;
     
-    // std::string dir;
-    // struct dirent *entry;
-
-    //     if ((dir = opendir(chapOnePath)) != NULL) {
-    //         while ((entry = readdir(dir)) != NULL) {
-    //             if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
-    //                 continue;
-    //             }
-    //         std::cout << entry->d_name << '\n';
-    //         }
-    //         closedir(dir);
-    //     } else {
-    //         perror("opendir() error");
-    //     }
     // for all .tex in directory latex
     // create a chapter object 
     // look at directory
