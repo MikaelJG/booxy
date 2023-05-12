@@ -51,6 +51,7 @@ int main(int argc, char* argv[]) {
 
     std::vector<std::string> texFiles = {};
 
+    CopyTex(chapOnePath, texFiles);
     CopyTex(chapTwoPath, texFiles);
     CopyTex(chapThreePath, texFiles);
     CopyTex(chapFourPath, texFiles);
