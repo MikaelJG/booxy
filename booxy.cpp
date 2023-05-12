@@ -24,18 +24,15 @@ void CopyTex(std::string path, std::string endPath, std::vector<std::string> fil
         if (files[i].substr(files[i].find_last_of(".") + 1) == "tex") {
             std::string cmd = "cp " + files[i] + " " + endPath; // relative paths still
             system(cmd.c_str());
-            std::string latex_cmd = "pdflatex " + files[i] + '\n'; // relative paths still
-            std::cout << latex_cmd;
-            // system(cmd.c_str());
         }
     }
 }
 
 void PdfLatex(std::string path) {
     for (const auto & entry : fs::directory_iterator(path)) {
-        const char *cstr = entry.path().c_str();
-        std::cout << cstr << '\n';
-        // std::string cmd = "pdflatex " + entry.path();
+        std::string cstr = entry.path().c_str();
+        std::string latex_cmd = "pdflatex " + cstr;
+        system(latex_cmd.c_str());
     }
 }
     
