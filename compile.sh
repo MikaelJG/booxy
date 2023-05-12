@@ -38,8 +38,6 @@ for i in {1..5}; do
   files=$(ls ${!path})
 
     for filename in ${files}; do
-
-    # looking for .tex extension
         ext="${filename##*.}"
         case $ext in
         tex) 
