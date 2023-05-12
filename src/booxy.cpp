@@ -66,5 +66,7 @@ int main(int argc, char* argv[]) {
     // if ext = .aux // put in ./aux
     // if ext = .log // put in ./log
 
+    // install dependencies, pdfunite?
+
     return 0;
 }

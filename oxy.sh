@@ -1,27 +1,4 @@
-#!/bin/bash
-
-# pretty date
-date=$(date +"%m-%d-%H:%M")
-
-# relative paths 
-script_dir="$(dirname ${BASH_SOURCE[0]})"
-
-# chapters
-path_1=${script_dir}/chap_1
-path_2=${script_dir}/chap_2
-path_3=${script_dir}/chap_3
-path_4=${script_dir}/chap_4
-
-# documents
-pdf_path=${script_dir}/pdf
-latex_path=${script_dir}/latex
-complete_path=${script_dir}/complete
-
 compile_latex() {
-    for filename in ${latex_path}/*; do 
-        [ -f "$filename" ] && pdflatex $filename
-    done
-
     # .log in log ; .pdf in pdf
     mv *.aux log ; mv *.log log ; mv *.pdf pdf
 
@@ -46,5 +23,3 @@ for i in {1..5}; do
         esac
     done
 done
-
-compile_latex

@@ -1,3 +1,4 @@
 #!/bin/bash
 
-g++ -std=c++17 booxy.cpp
+cd ./src && g++ -std=c++17 booxy.cpp -o booxy
+mv booxy ..
