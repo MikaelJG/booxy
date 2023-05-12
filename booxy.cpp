@@ -1,4 +1,4 @@
-// You need the 17 standard.
+//  c++17 standard.
 //  g++ -std=c++17 myfile.cpp -o output-name
 
 #include <iostream>
@@ -8,13 +8,6 @@
 #include <cstring>
 #include <filesystem>
 namespace fs = std::filesystem;
-
-struct Chapter {
-    int num;
-    std::string directory;
-    std::vector<std::string> TexDocs;
-    bool isToPrint = true;
-};
 
 void CopyTex(std::string path, std::string endPath, std::vector<std::string> files) {
     for (const auto & entry : fs::directory_iterator(path))
@@ -71,33 +64,6 @@ int main(int argc, char* argv[]) {
     PdfLatex(latexPath);
 
     // for all files in latex directory, ox.execute(pdflatex $filename)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Chapter shell;
-    // shell.TexDocs = {"I'm", "in", "GetDocs", "Function"};
-
-    // GetDocs(shell);
-
-    // shell.num = 22;
-    // std::cout << "Chapter number: " << shell.num << '\n';
 
     return 0;
 }
