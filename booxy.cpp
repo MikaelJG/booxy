@@ -16,17 +16,24 @@ struct Chapter {
     bool isToPrint = true;
 };
 
-void CopyTex(std::string path, std::vector<std::string> files) {
+void CopyTex(std::string path, std::string endPath, std::vector<std::string> files) {
     for (const auto & entry : fs::directory_iterator(path))
         files.push_back(entry.path());
 
     for (int i = 0; i < files.size(); i++) {
         if (files[i].substr(files[i].find_last_of(".") + 1) == "tex") {
-            std::string cmd = "cp " + files[i] + " ./latex/"; 
+            std::string cmd = "cp " + files[i] + " " + endPath; // relative paths still
             system(cmd.c_str());
         }
     }
 }
+
+void PdfLatex(std::string path) {
+    for (const auto & entry : fs::directory_iterator(path))
+        // std::string cmd = "pdflatex " + path
+        std::cout << entry.path() << '\n';
+}
+    
 
 std::string getParentDirectory(std::string path) {
     size_t found = path.find_last_of("/\\");
@@ -51,10 +58,15 @@ int main(int argc, char* argv[]) {
 
     std::vector<std::string> texFiles = {};
 
-    CopyTex(chapOnePath, texFiles);
-    CopyTex(chapTwoPath, texFiles);
-    CopyTex(chapThreePath, texFiles);
-    CopyTex(chapFourPath, texFiles);
+    CopyTex(chapOnePath, latexPath, texFiles);
+    CopyTex(chapTwoPath, latexPath, texFiles);
+    CopyTex(chapThreePath, latexPath, texFiles);
+    CopyTex(chapFourPath, latexPath, texFiles);
+
+    // for all files in latexPath 
+    std::string latexCmd = "pdflatex";
+    
+    PdfLatex(latexPath);
 
     // for all files in latex directory, ox.execute(pdflatex $filename)
 
