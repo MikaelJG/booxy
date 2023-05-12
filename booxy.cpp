@@ -26,7 +26,6 @@ std::vector<std::string> FindTex(std::string path, std::vector<std::string> file
             std::cout << files[i] << " is a .tex" << '\n';
         }
     }
-
     return files;
 }
 
@@ -55,10 +54,14 @@ int main(int argc, char* argv[]) {
 
     std::vector<std::string> texFiles = {};
 
-    FindTex(chapOnePath, texFiles);
-    // FindTex(chapTwoPath);
-    // FindTex(chapThreePath);
-    // FindTex(chapFourPath);
+    FindTex(chapTwoPath, texFiles);
+    FindTex(chapThreePath, texFiles);
+    FindTex(chapFourPath, texFiles);
+
+    
+    for (int i = 0; i < texFiles.size(); i++) {
+        std::cout << texFiles[i] << '\n';
+    }
 
     // Chapter shell;
     // shell.TexDocs = {"I'm", "in", "GetDocs", "Function"};
