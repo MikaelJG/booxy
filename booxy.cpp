@@ -27,6 +27,9 @@ std::vector<std::string> FindTex(std::string path, std::vector<std::string> file
         // std::cout << entry.path() << std::endl;
 
     for (int i = 0; i < files.size(); i++) {
+        if (files[i].substring(files[i].find_last_of(".") + 1) == "tex") {
+            std::cout << files[i] << " is a .tex";
+        }
         std::cout << files[i] << '\n';
     }
 
