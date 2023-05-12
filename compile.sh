@@ -11,20 +11,15 @@ path_1=${script_dir}/chap_1
 path_2=${script_dir}/chap_2
 path_3=${script_dir}/chap_3
 path_4=${script_dir}/chap_4
-path_5=${script_dir}/chap_5
 
 # documents
 pdf_path=${script_dir}/pdf
 latex_path=${script_dir}/latex
 complete_path=${script_dir}/complete
-log_path=${script_dir}/log
 
 compile_latex() {
     for filename in ${latex_path}/*; do 
-        if [ -f "$filename" ];
-            then
-                pdflatex $filename 
-        fi
+        [ -f "$filename" ] && pdflatex $filename
     done
 
     # .log in log ; .pdf in pdf
