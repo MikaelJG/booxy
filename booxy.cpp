@@ -16,7 +16,7 @@ struct Chapter {
     bool isToPrint = true;
 };
 
-std::vector<std::string> FindTex(std::string path, std::vector<std::string> files) {
+void CopyTex(std::string path, std::vector<std::string> files) {
     for (const auto & entry : fs::directory_iterator(path))
         files.push_back(entry.path());
 
@@ -26,7 +26,6 @@ std::vector<std::string> FindTex(std::string path, std::vector<std::string> file
             system(cmd.c_str());
         }
     }
-    return files;
 }
 
 std::string getParentDirectory(std::string path) {
@@ -52,16 +51,9 @@ int main(int argc, char* argv[]) {
 
     std::vector<std::string> texFiles = {};
 
-    FindTex(chapTwoPath, texFiles);
-    FindTex(chapThreePath, texFiles);
-    FindTex(chapFourPath, texFiles);
-
-    
-    for (int i = 0; i < texFiles.size(); i++) {
-        std::cout << texFiles[i] << '\n';
-    }
-
-    // move all files to latex directory. 
+    CopyTex(chapTwoPath, texFiles);
+    CopyTex(chapThreePath, texFiles);
+    CopyTex(chapFourPath, texFiles);
 
     // for all files in latex directory, ox.execute(pdflatex $filename)
 
