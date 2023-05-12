@@ -1,10 +1,5 @@
 #!/bin/bash
 
-#######
-####### Logic is there, code it in c++ and golang
-#######
-#######
-
 # pretty date
 date=$(date +"%m-%d-%H:%M")
 
@@ -36,9 +31,6 @@ compile_latex() {
     mv *.aux log ; mv *.log log ; mv *.pdf pdf
 
     pdf_files=$(ls ${pdf_path}) 
-
-    # todo , if not installed, 
-    # install pdfunite
 
     cd $pdf_path && pdfunite ${pdf_files} workbook_$date.pdf
 
