@@ -53,17 +53,18 @@ int main(int argc, char* argv[]) {
 
     std::vector<std::string> texFiles = {};
 
-    // CopyTex(chapOnePath, latexPath, texFiles);
-    // CopyTex(chapTwoPath, latexPath, texFiles);
-    // CopyTex(chapThreePath, latexPath, texFiles);
-    // CopyTex(chapFourPath, latexPath, texFiles);
+    CopyTex(chapOnePath, latexPath, texFiles);
+    CopyTex(chapTwoPath, latexPath, texFiles);
+    CopyTex(chapThreePath, latexPath, texFiles);
+    CopyTex(chapFourPath, latexPath, texFiles);
 
-    // for all files in latexPath 
-    std::string latexCmd = "pdflatex";
-    
     PdfLatex(latexPath);
 
-    // for all files in latex directory, ox.execute(pdflatex $filename)
+    // next, remove or move .aux .pdf  .log files
+
+    // if ext = .pdf // put in ./pdf
+    // if ext = .aux // put in ./aux
+    // if ext = .log // put in ./log
 
     return 0;
 }
