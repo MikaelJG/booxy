@@ -16,12 +16,21 @@ struct Chapter {
     bool isToPrint = true;
 };
 
-std::string FindTex(std::string path) {
+std::vector<std::string> FindTex(std::string path, std::vector<std::string> files) {
     for (const auto & entry : fs::directory_iterator(path))
-        std::cout << entry.path() << std::endl;
+        // if extension is .tex append vector files
+        // if (entry.path().substr(entry.path().find_last_of(".") + 1) == "tex") {
+        //     files.push_back(entry.path);
+        //     std::cout << "one .tex was added";
+        // {
+        files.push_back(entry.path());
+        // std::cout << entry.path() << std::endl;
 
-    std::cout << "in fun, for path:  " << path << '\n';
-    return path;
+    for (int i = 0; i < files.size(); i++) {
+        std::cout << files[i] << '\n';
+    }
+
+    return files;
 }
 
 std::string getParentDirectory(std::string path) {
@@ -47,10 +56,12 @@ int main(int argc, char* argv[]) {
     std::string pdfPath = parentDirectory + "/pdf";
     std::string completePath = parentDirectory + "/complete";
 
-    FindTex(chapOnePath);
-    FindTex(chapTwoPath);
-    FindTex(chapThreePath);
-    FindTex(chapFourPath);
+    std::vector<std::string> texFiles = {};
+
+    FindTex(chapOnePath, texFiles);
+    // FindTex(chapTwoPath);
+    // FindTex(chapThreePath);
+    // FindTex(chapFourPath);
 
     // Chapter shell;
     // shell.TexDocs = {"I'm", "in", "GetDocs", "Function"};
