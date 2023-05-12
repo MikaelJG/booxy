@@ -23,8 +23,7 @@ std::vector<std::string> FindTex(std::string path, std::vector<std::string> file
     for (int i = 0; i < files.size(); i++) {
         if (files[i].substr(files[i].find_last_of(".") + 1) == "tex") {
             std::string cmd = "cp " + files[i] + " ./latex/"; 
-            std::cout << cmd << '\n';
-            // system("touch ./latex/tmp.txt");
+            system(cmd.c_str());
         }
     }
     return files;
