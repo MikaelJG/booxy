@@ -24,6 +24,7 @@ std::vector<std::string> FindTex(std::string path, std::vector<std::string> file
         if (files[i].substr(files[i].find_last_of(".") + 1) == "tex") {
             std::cout << "In path: " << path << '\n';
             std::cout << files[i] << " is a .tex" << '\n';
+            system("touch ./latex/tmp.txt");
         }
     }
     return files;
@@ -36,8 +37,6 @@ std::string getParentDirectory(std::string path) {
     }
     return "";
 }
-// sort chapters.num 
-// to print in the right order
 
 int main(int argc, char* argv[]) {
 
@@ -62,6 +61,29 @@ int main(int argc, char* argv[]) {
     for (int i = 0; i < texFiles.size(); i++) {
         std::cout << texFiles[i] << '\n';
     }
+
+    // move all files to latex directory. 
+
+    // for all files in latex directory, ox.execute(pdflatex $filename)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Chapter shell;
     // shell.TexDocs = {"I'm", "in", "GetDocs", "Function"};
