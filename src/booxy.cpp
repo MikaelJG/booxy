@@ -1,6 +1,13 @@
 //  c++17 standard.
 //  g++ -std=c++17 myfile.cpp -o output-name
 
+
+// -o omit option
+// ./booxy -o 1
+// booxy omit one
+
+// have flags and options strategy
+
 #include <iostream>
 #include <vector>
 #include <string>
