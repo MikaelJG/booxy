@@ -2,9 +2,11 @@
 //  g++ -std=c++17 myfile.cpp -o output-name
 
 
-// -o omit option
-// ./booxy -o 1
-// booxy omit one
+// readflag stategy
+// if -o or -omit flag
+// prompt user with std::cin >> omit_chapter  
+// prompt user for more chapters // chap_two
+// omit path search for them specifically
 
 // have flags and options strategy
 
