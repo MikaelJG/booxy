@@ -14,6 +14,10 @@
 // verify that latex and pdfunite are installed
 // either by which, or cpp own means 
 
+// Test relative paths 
+// With .bashrc shortcut
+// Could I do it with $PATH? 
+
 #include <iostream>
 #include <vector>
 #include <string>
