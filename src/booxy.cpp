@@ -10,6 +10,10 @@
 
 // have flags and options strategy
 
+// feature probing
+// verify that latex and pdfunite are installed
+// either by which, or cpp own means 
+
 #include <iostream>
 #include <vector>
 #include <string>
