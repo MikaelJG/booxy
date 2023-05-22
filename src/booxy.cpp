@@ -73,8 +73,6 @@ int main(int argc, char* argv[]) {
         std::cout << "Flag -o for -omit is present!" << std::endl;
     }
 
-    return 0;
-
     // relative paths
     std::string programPath = argv[0];
     std::string parentDirectory = getParentDirectory(programPath);
