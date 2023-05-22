@@ -66,8 +66,11 @@ int main(int argc, char* argv[]) {
     }
     std::cout << std::endl;
 
-    if (hasFlag(arguments, "-f")) {
-        std::cout << "Flag -f is present!" << std::endl;
+    // if no arguments give help as default
+    // if arguments.size = 0?
+
+    if (hasFlag(arguments, "-o")) {
+        std::cout << "Flag -o for -omit is present!" << std::endl;
     }
 
     return 0;
