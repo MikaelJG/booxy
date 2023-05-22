@@ -8,8 +8,6 @@
 // prompt user for more chapters // chap_two
 // omit path search for them specifically
 
-// have flags and options strategy
-
 // feature probing
 // verify that latex and pdfunite are installed
 // either by which, or cpp own means 
@@ -23,6 +21,7 @@
 #include <string>
 #include <typeinfo>
 #include <cstring>
+#include <algorithm>
 #include <filesystem>
 namespace fs = std::filesystem;
 
@@ -55,7 +54,23 @@ std::string getParentDirectory(std::string path) {
     return "";
 }
 
+bool hasFlag(const std::vector<std::string>& arguments, const std::string& flag) {
+    return std::find(arguments.begin(), arguments.end(), flag) != arguments.end();
+}
+
 int main(int argc, char* argv[]) {
+    std::vector<std::string> arguments(argv + 1, argv + argc);
+
+    for (int i = 0; i < arguments.size(); i++) {
+        std::cout << arguments[i] << " ";
+    }
+    std::cout << std::endl;
+
+    if (hasFlag(arguments, "-f")) {
+        std::cout << "Flag -f is present!" << std::endl;
+    }
+
+    return 0;
 
     // relative paths
     std::string programPath = argv[0];
