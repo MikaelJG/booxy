@@ -18,7 +18,7 @@ all_language_path=${script_dir}/3_languages/all
 language_path=${script_dir}/3_languages
 
 for i in {1..10}; do
-# for all paths in complex language champter
+# for all paths in complex language chapter
     path="path_$i"
     files=$(ls ${!path})
 
@@ -33,23 +33,23 @@ for i in {1..10}; do
                 echo "Done with: --  $filepath";;
         esac
 
-        sed -i '/documentclass{arti/d' ${!path}/$file || echo 'it didn"work"'
-        sed -i '/usepacka/d' ${!path}/$file || echo 'it didn"work"'
-        sed -i '/author{/d' ${!path}/$file || echo 'it didn"work"'
+        sed -i '/documentclass{arti/d' ${!path}/$file || echo 'sed cmd failed'
+        sed -i '/usepacka/d' ${!path}/$file || echo 'sed cmd failed'
+        sed -i '/author{/d' ${!path}/$file || echo 'sed cmd failed'
 
         # don't lose the section's title
-        sed -i 's/title{/section{/g' ${!path}/$file || echo 'it didn"work"'
-        sed -i '/begin{do/d' ${!path}/$file || echo 'it didn"work"'
-        sed -i '/maketit/d' ${!path}/$file || echo 'it didn"work"'
-        sed -i '/end{do/d' ${!path}/$file || echo 'it didn"work"'
+        sed -i 's/title{/section{/g' ${!path}/$file || echo 'sed cmd failed'
+        sed -i '/begin{do/d' ${!path}/$file || echo 'sed cmd failed'
+        sed -i '/maketit/d' ${!path}/$file || echo 'sed cmd failed'
+        sed -i '/end{do/d' ${!path}/$file || echo 'sed cmd failed'
 
-        sed -i '/^$/N;/^\n$/D' ${!path}/$file || echo 'it didn"t work'
+        sed -i '/^$/N;/^\n$/D' ${!path}/$file || echo 'sed cmd failed'
 
         cat ${!path}/$file >> 3_languages/3_languages.tex 
     done
 done
     
-    sed -i '/end{do/d' 3_languages/3_languages.tex || echo 'it didn"work"'
+    sed -i '/end{do/d' 3_languages/3_languages.tex || echo 'sed cmd failed'
     # end doc in chapter.tex
     echo "\\end{document}" >> 3_languages/3_languages.tex
 
