@@ -17,6 +17,18 @@ path_10=${script_dir}/3_languages/csharp
 all_language_path=${script_dir}/3_languages/all
 language_path=${script_dir}/3_languages
 
+# install latex dependencies
+
+# if [ ! -f /usr/bin/python3 ]; then
+#     sudo apt update
+#     sudo apt install -y python3
+# fi
+# 
+# if [ ! -f /usr/bin/pipe3 ]; then
+#     sudo apt update
+#     sudo apt install -y python3-pip
+# fi
+
 for i in {1..10}; do
 # for all paths in complex language chapter
     path="path_$i"
