@@ -74,15 +74,15 @@ int main(int argc, char* argv[]) {
     }
 
     // relative paths
-    std::string programPath = argv[0];
-    std::string parentDirectory = getParentDirectory(programPath);
-    std::string chapOnePath = parentDirectory + "/chap_1";
-    std::string chapTwoPath = parentDirectory + "/chap_2";
-    std::string chapThreePath = parentDirectory + "/chap_3";
-    std::string chapFourPath = parentDirectory + "/chap_4";
-    std::string latexPath = parentDirectory + "/latex";
-    std::string pdfPath = parentDirectory + "/pdf";
-    std::string completePath = parentDirectory + "/complete";
+    const std::string programPath = argv[0];
+    const std::string parentDirectory = getParentDirectory(programPath);
+    const std::string chapOnePath = parentDirectory + "/chap_1";
+    const std::string chapTwoPath = parentDirectory + "/chap_2";
+    const std::string chapThreePath = parentDirectory + "/chap_3";
+    const std::string chapFourPath = parentDirectory + "/chap_4";
+    const std::string latexPath = parentDirectory + "/latex";
+    const std::string pdfPath = parentDirectory + "/pdf";
+    const std::string completePath = parentDirectory + "/complete";
 
     std::vector<std::string> texFiles = {};
 
