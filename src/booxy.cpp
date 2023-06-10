@@ -25,12 +25,16 @@
 #include <filesystem>
 namespace fs = std::filesystem;
 
+bool is_tex(const std::string file) {
+    return (file.substr(file.find_last_of(".") + 1) == "tex" ? true : false);
+}
+
 void CopyTex(std::string path, std::string endPath, std::vector<std::string> files) {
     for (const auto & entry : fs::directory_iterator(path))
         files.push_back(entry.path());
 
     for (int i = 0; i < files.size(); i++) {
-        if (files[i].substr(files[i].find_last_of(".") + 1) == "tex") {
+        if (is_tex(files[i])) {
             std::string cmd = "cp " + files[i] + " " + endPath; // relative paths still
             system(cmd.c_str());
         }
