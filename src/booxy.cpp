@@ -29,14 +29,18 @@ bool is_tex(const std::string file) {
     return (file.substr(file.find_last_of(".") + 1) == "tex" ? true : false);
 }
 
+std::string create_tex_cmd(const std::string file, const std::string endPath) {
+    std::string cmd = "cp " + file + " " + endPath; // relative paths still
+    return cmd;
+}
+
 void CopyTex(std::string path, std::string endPath, std::vector<std::string> files) {
     for (const auto & entry : fs::directory_iterator(path))
         files.push_back(entry.path());
 
-    for (const std::string file : files) {
+    for (const auto file : files) {
         if (is_tex(file)) {
-            std::string cmd = "cp " + file + " " + endPath; // relative paths still
-            system(cmd.c_str());
+            system(create_tex_cmd(file, endPath).c_str());
         }
     }
 }
@@ -64,10 +68,10 @@ bool hasFlag(const std::vector<std::string>& arguments, const std::string& flag)
 int main(int argc, char* argv[]) {
     std::vector<std::string> arguments(argv + 1, argv + argc);
 
-    for (int i = 0; i < arguments.size(); i++) {
-        std::cout << arguments[i] << " ";
+    for (const std::string argument : arguments) {
+        std::cout << argument << " ";
     }
-    std::cout << std::endl;
+    std::cout << '\n';
 
     // if no arguments give help as default
     // if arguments.size = 0?
