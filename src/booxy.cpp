@@ -48,7 +48,6 @@ void PdfLatex(std::string path) {
         system(latex_cmd.c_str());
     }
 }
-    
 
 std::string getParentDirectory(std::string path) {
     size_t found = path.find_last_of("/\\");
