@@ -33,9 +33,9 @@ void CopyTex(std::string path, std::string endPath, std::vector<std::string> fil
     for (const auto & entry : fs::directory_iterator(path))
         files.push_back(entry.path());
 
-    for (int i = 0; i < files.size(); i++) {
-        if (is_tex(files[i])) {
-            std::string cmd = "cp " + files[i] + " " + endPath; // relative paths still
+    for (const std::string file : files) {
+        if (is_tex(file)) {
+            std::string cmd = "cp " + file + " " + endPath; // relative paths still
             system(cmd.c_str());
         }
     }
