@@ -29,7 +29,7 @@ const bool is_tex(const std::string file) {
     return (file.substr(file.find_last_of(".") + 1) == "tex" ? true : false);
 }
 
-const std::string create_tex_cmd(const std::string file, const std::string endPath) {
+const std::string make_tex_cmd(const std::string file, const std::string endPath) {
     std::string cmd = "cp " + file + " " + endPath; // relative paths still
     return cmd;
 }
@@ -40,35 +40,35 @@ const void copy_tex(std::string path, std::string endPath, std::vector<std::stri
 
     for (const auto file : files) {
         if (is_tex(file)) {
-            system(create_tex_cmd(file, endPath).c_str());
+            system(make_tex_cmd(file, endPath).c_str());
         }
     }
 }
 
 void pdf_latex(std::string path) {
-    for (const auto & entry : fs::directory_iterator(path)) {
+    for (const auto &entry : fs::directory_iterator(path)) {
         const std::string cstr = entry.path().c_str();
         const std::string latex_cmd = "pdflatex " + cstr;
         system(latex_cmd.c_str());
     }
 }
 
-const std::string getParentDirectory(std::string path) {
+const std::string getParentDirectory(const std::string path) {
     size_t found = path.find_last_of("/\\");
-    if (found != std::string::npos) {
+    if (found != std::string::npos) { // what is npos here?
         return path.substr(0, found);
     }
     return "";
 }
 
-bool hasFlag(const std::vector<std::string>& arguments, const std::string& flag) {
+const bool has_flag(const std::vector<std::string>& arguments, const std::string& flag) {
     return std::find(arguments.begin(), arguments.end(), flag) != arguments.end();
 }
 
 int main(int argc, char* argv[]) {
     const std::vector<std::string> arguments(argv + 1, argv + argc);
 
-    // if (hasFlag(arguments, "-o")) {
+    // if (has_flag(arguments, "-o")) {
     //     std::cout << "Flag -o for -omit is present!" << std::endl;
     // }
 
