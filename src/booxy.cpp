@@ -25,16 +25,16 @@
 #include <filesystem>
 namespace fs = std::filesystem;
 
-bool is_tex(const std::string file) {
+const bool is_tex(const std::string file) {
     return (file.substr(file.find_last_of(".") + 1) == "tex" ? true : false);
 }
 
-std::string create_tex_cmd(const std::string file, const std::string endPath) {
+const std::string create_tex_cmd(const std::string file, const std::string endPath) {
     std::string cmd = "cp " + file + " " + endPath; // relative paths still
     return cmd;
 }
 
-void CopyTex(std::string path, std::string endPath, std::vector<std::string> files) {
+const void copy_tex(std::string path, std::string endPath, std::vector<std::string> files) {
     for (const auto & entry : fs::directory_iterator(path))
         files.push_back(entry.path());
 
@@ -45,15 +45,15 @@ void CopyTex(std::string path, std::string endPath, std::vector<std::string> fil
     }
 }
 
-void PdfLatex(std::string path) {
+void pdf_latex(std::string path) {
     for (const auto & entry : fs::directory_iterator(path)) {
-        std::string cstr = entry.path().c_str();
-        std::string latex_cmd = "pdflatex " + cstr;
+        const std::string cstr = entry.path().c_str();
+        const std::string latex_cmd = "pdflatex " + cstr;
         system(latex_cmd.c_str());
     }
 }
 
-std::string getParentDirectory(std::string path) {
+const std::string getParentDirectory(std::string path) {
     size_t found = path.find_last_of("/\\");
     if (found != std::string::npos) {
         return path.substr(0, found);
@@ -66,19 +66,11 @@ bool hasFlag(const std::vector<std::string>& arguments, const std::string& flag)
 }
 
 int main(int argc, char* argv[]) {
-    std::vector<std::string> arguments(argv + 1, argv + argc);
+    const std::vector<std::string> arguments(argv + 1, argv + argc);
 
-    for (const std::string argument : arguments) {
-        std::cout << argument << " ";
-    }
-    std::cout << '\n';
-
-    // if no arguments give help as default
-    // if arguments.size = 0?
-
-    if (hasFlag(arguments, "-o")) {
-        std::cout << "Flag -o for -omit is present!" << std::endl;
-    }
+    // if (hasFlag(arguments, "-o")) {
+    //     std::cout << "Flag -o for -omit is present!" << std::endl;
+    // }
 
     // relative paths
     const std::string programPath = argv[0];
@@ -93,12 +85,12 @@ int main(int argc, char* argv[]) {
 
     std::vector<std::string> texFiles = {};
 
-    CopyTex(chapOnePath, latexPath, texFiles);
-    CopyTex(chapTwoPath, latexPath, texFiles);
-    CopyTex(chapThreePath, latexPath, texFiles);
-    CopyTex(chapFourPath, latexPath, texFiles);
+    copy_tex(chapOnePath, latexPath, texFiles);
+    copy_tex(chapTwoPath, latexPath, texFiles);
+    copy_tex(chapThreePath, latexPath, texFiles);
+    copy_tex(chapFourPath, latexPath, texFiles);
 
-    PdfLatex(latexPath);
+    pdf_latex(latexPath);
 
     // next, remove or move .aux .pdf  .log files
 
@@ -111,31 +103,3 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-// Bash Example 
-
-
-// compile_latex() {
-//     # .log in log ; .pdf in pdf
-//     mv *.aux log ; mv *.log log ; mv *.pdf pdf
-// 
-//     pdf_files=$(ls ${pdf_path}) 
-// 
-//     cd $pdf_path && pdfunite ${pdf_files} workbook_$date.pdf
-// 
-//     mv workbook* ../$complete_path
-// }
-// 
-// # loop over number of chapters
-// for i in {1..5}; do
-//   path="path_$i"
-//   files=$(ls ${!path})
-// 
-//     for filename in ${files}; do
-//         ext="${filename##*.}"
-//         case $ext in
-//         tex) 
-//             filepath=${!path}/$filename
-//             cp $filepath latex;;
-//         esac
-//     done
-// done
